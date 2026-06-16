@@ -1,0 +1,108 @@
+/* Full-bleed cinematic hero, HBO-Max style. */
+.Hero {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  background-size: cover;
+  background-position: center 15%;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+/* gradient scrim: dark on the left/bottom (where the text sits), fading to clear */
+.Hero-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(20, 21, 50, 0.92) 0%, rgba(20, 21, 50, 0.55) 40%, rgba(20, 21, 50, 0) 75%),
+    linear-gradient(to top, rgba(20, 21, 50, 0.9) 0%, rgba(20, 21, 50, 0) 45%);
+}
+
+.Hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  /* extra left padding so the text clears the 64px sidebar rail */
+  padding: 0 2rem 4.5rem calc(2rem + 64px);
+}
+
+.Hero-eyebrow {
+  margin: 0 0 0.5rem;
+  color: var(--periwinkle-soft, #8d90e8);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.Hero-title {
+  margin: 0 0 0.75rem;
+  color: #ffffff;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.Hero-overview {
+  margin: 0 0 1.5rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  max-width: 30rem;
+  /* clamp the overview to 3 lines so the hero stays clean */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.Hero-cta {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--periwinkle, #4f53c4);
+  padding: 0.75rem 1.75rem;
+  font-size: 1.05rem;
+  border-radius: 6px;
+}
+
+.Hero-cta:hover {
+  background: #ffffff;
+}
+
+/* dots */
+.Hero-dots {
+  position: absolute;
+  z-index: 2;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.Hero-dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.Hero-dot.is-active {
+  background: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .Hero {
+    min-height: 60vh;
+  }
+  .Hero-content {
+    padding: 0 1.25rem 3.5rem;
+  }
+  .Hero-overview {
+    font-size: 0.95rem;
+  }
+}

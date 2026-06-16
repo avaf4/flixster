@@ -1,0 +1,47 @@
+.Sort {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.Sort-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.Sort-select {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  /* transparent frosted pill matching the search input */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* dropdown options render on a white menu, so give them dark text */
+.Sort-select option {
+  color: var(--text, #1d1e36);
+}
+
+.Sort-select:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 1px;
+}
+
+/* on small screens, let the sort span the full width so it lines up with
+   the search bar above it instead of being a cramped pill */
+@media (max-width: 600px) {
+  .Sort {
+    width: 100%;
+  }
+  .Sort-select {
+    flex: 1;
+  }
+}

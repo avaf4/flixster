@@ -1,0 +1,155 @@
+.MovieCard {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface, #f3f3fc);
+  border: 1px solid var(--periwinkle-border, #d2d3f5);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.MovieCard:hover,
+.MovieCard:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(79, 83, 196, 0.28);
+  outline: 2px solid var(--periwinkle, #4f53c4);
+  outline-offset: 2px;
+}
+
+/* watched cards are visually distinguished (dimmed + periwinkle ring) */
+.MovieCard.is-watched {
+  border-color: var(--periwinkle, #4f53c4);
+}
+
+.MovieCard.is-watched .MovieCard-poster {
+  filter: brightness(0.7);
+}
+
+.MovieCard-posterWrap {
+  position: relative;
+}
+
+.MovieCard-poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+/* favorite heart button, top-right of the poster */
+.MovieCard-fav {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s ease, background 0.15s ease;
+}
+
+.MovieCard-fav:hover {
+  background: #ffffff;
+  transform: scale(1.12);
+}
+
+.MovieCard-fav.is-on {
+  background: #ffffff;
+}
+
+/* heart icon inside the favorite button */
+.MovieCard-favIcon {
+  width: 1.1rem;
+  height: 1.1rem;
+  object-fit: contain;
+  display: block;
+}
+
+/* "Watched" badge over the poster */
+.MovieCard-watchedBadge {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--periwinkle, #4f53c4);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+}
+
+/* small eye icon inside the watched badge */
+.MovieCard-badgeIcon {
+  width: 0.85rem;
+  height: 0.85rem;
+  object-fit: contain;
+}
+
+/* watched checkbox row at the bottom of the card */
+.MovieCard-watched {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0 0.75rem 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-dim, #494c80);
+  cursor: pointer;
+}
+
+.MovieCard-watched input {
+  accent-color: var(--periwinkle, #4f53c4);
+  cursor: pointer;
+}
+
+.MovieCard-poster--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-2, #e7e8fa);
+  color: var(--text-dim, #494c80);
+  font-size: 0.9rem;
+}
+
+.MovieCard-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  flex: 1; /* grow to fill space so the watched row sits at the bottom */
+}
+
+.MovieCard-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text, #1d1e36);
+}
+
+.MovieCard-vote {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--periwinkle, #4f53c4);
+  white-space: nowrap;
+}
+
+/* star icon next to the vote average */
+.MovieCard-starIcon {
+  width: 0.95rem;
+  height: 0.95rem;
+  object-fit: contain;
+}

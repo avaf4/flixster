@@ -1,0 +1,85 @@
+.SearchBar {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+}
+
+.SearchBar-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
+  font-family: inherit;
+  /* transparent frosted pill that reads over the hero / periwinkle bar */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #ffffff;
+}
+
+.SearchBar-input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.SearchBar-input:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* transparent rounded buttons (override the default solid look in the header) */
+.SearchBar-button {
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+}
+
+.SearchBar-button:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+/* collapsed state: just the icon button, no flex-grow */
+.SearchBar--collapsed {
+  flex: 0 0 auto;
+  justify-content: flex-end;
+}
+
+/* round icon-only search button shown on narrow screens */
+.SearchBar-iconBtn {
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SearchBar-iconBtn:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.SearchBar-iconImg {
+  width: 1.3rem;
+  height: 1.3rem;
+  object-fit: contain;
+  display: block;
+}
+
+/* when expanded on a small screen, let the input + buttons wrap if needed */
+.SearchBar--open {
+  flex-wrap: wrap;
+}

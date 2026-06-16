@@ -1,0 +1,22 @@
+/* MovieList: responsive grid that lays out the MovieCards.
+   Breakpoints (planning):
+     - mobile  (< 600px):  ~2 cards per row  (min 140px)
+     - tablet  (600–1024): ~3-4 cards per row (min 160px)
+     - desktop (> 1024px): 5+ cards per row   (min 180px) */
+.MovieList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.25rem;
+}
+
+@media (min-width: 600px) {
+  .MovieList {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .MovieList {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}

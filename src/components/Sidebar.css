@@ -1,0 +1,123 @@
+.Sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 64px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* center icons horizontally in the 64px column */
+  justify-content: center;   /* center the icon group vertically in the bar */
+  gap: 0.5rem;
+  /* low alpha so the page shows through; the blur keeps icons legible */
+  background: rgba(43, 45, 93, 0.712);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.Sidebar-item {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0.6rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.Sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.Sidebar-item.is-active {
+  background: var(--periwinkle, #4f53c4);
+}
+
+.Sidebar-icon {
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* keep an imported PNG icon the same visual size as the emoji icons */
+.Sidebar-iconImg {
+  width: 1.4rem;
+  height: 1.4rem;
+  object-fit: contain;
+  display: block;
+}
+
+/* small count badge on Favorites / Watched */
+.Sidebar-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 1.1rem;
+  height: 1.1rem;
+  padding: 0 0.25rem;
+  border-radius: 999px;
+  background: var(--periwinkle, #4f53c4);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Sidebar-item.is-active .Sidebar-badge {
+  background: #ffffff;
+  color: var(--periwinkle, #4f53c4);
+}
+
+/* label tooltip on hover/focus */
+.Sidebar-tooltip {
+  position: absolute;
+  left: 100%;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+  background: var(--text, #1d1e36);
+  color: #ffffff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.Sidebar-item:hover .Sidebar-tooltip,
+.Sidebar-item:focus-visible .Sidebar-tooltip {
+  opacity: 1;
+}
+
+.Sidebar-item:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  /* on mobile, dock the rail to the bottom as a horizontal bar */
+  .Sidebar {
+    top: auto;
+    bottom: 0;
+    height: 56px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-top: 0;
+  }
+  .Sidebar-tooltip {
+    display: none;
+  }
+}

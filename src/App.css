@@ -1,28 +1,71 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
+/* The shell is full-width so the hero image slides BEHIND the translucent
+   sidebar. Readable parts (nav, main content) get indented to clear the rail.
+   It's a full-height flex column so the footer is pinned to the bottom. */
+.App-shell {
+  margin-left: 0;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  color: white;
-  padding: 20px;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* relative wrapper so the overlay Header anchors to the hero */
+.App-hero {
+  position: relative;
 }
 
 @media (max-width: 600px) {
-  .movie-card {
-    width: 100%;
+  /* sidebar docks to the bottom on mobile; leave room at the bottom instead */
+  .App-shell {
+    padding-bottom: 56px;
   }
+}
 
-  .search-bar {
-    flex-direction: column;
-    gap: 10px;
-  }
+.App-main {
+  flex: 1; /* push the footer to the bottom */
+  width: 100%;
+  max-width: 1200px;
+  /* center, but keep clear of the 64px sidebar on the left */
+  margin: 0 auto;
+  padding: 1rem 1rem 1rem calc(1rem + 64px);
+}
 
-  .search-bar form {
-    flex-direction: column;
+@media (max-width: 600px) {
+  /* no left rail on mobile, so reset the extra left padding */
+  .App-main {
+    padding-left: 1rem;
   }
+}
+
+/* "Now Playing" / search-results heading, à la HBO Max "Featured Series" */
+.App-sectionTitle {
+  margin: 0.5rem 0 1rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.App-error {
+  background: #fbe3e3;
+  color: #8a1c1c;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.App-empty,
+.App-loading {
+  text-align: center;
+  color: var(--text-dim);
+  padding: 1rem;
+}
+
+.App-loadMore {
+  display: block;
+  margin: 1.5rem auto;
 }

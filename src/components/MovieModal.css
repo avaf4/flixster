@@ -1,0 +1,165 @@
+/* Modal: centered overlay with a semi-transparent dark backdrop for depth. */
+.MovieModal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 21, 50, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.MovieModal {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(20, 21, 50, 0.45);
+}
+
+.MovieModal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--periwinkle, #4f53c4);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1;
+  z-index: 1;
+}
+
+.MovieModal-close:hover {
+  background: #ffffff;
+}
+
+.MovieModal-status {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-dim, #494c80);
+}
+
+.MovieModal-backdropImg {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+
+/* trailer embed — 16:9 responsive iframe, shown below the recommendation */
+.MovieModal-trailer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-top: 1rem;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.MovieModal-trailerFrame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.MovieModal-body {
+  padding: 1.5rem;
+}
+
+.MovieModal-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.6rem;
+  color: var(--text, #1d1e36);
+}
+
+.MovieModal-meta {
+  display: flex;
+  gap: 1rem;
+  color: var(--text-dim, #494c80);
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.MovieModal-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.MovieModal-genre {
+  background: var(--surface-2, #e7e8fa);
+  color: var(--periwinkle, #4f53c4);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.MovieModal-overview {
+  color: var(--text, #1d1e36);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* AI Watch Recommendation block */
+.MovieModal-ai {
+  background: var(--surface, #f3f3fc);
+  border-left: 3px solid var(--periwinkle, #4f53c4);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* space between stacked AI blocks */
+.MovieModal-ai + .MovieModal-ai {
+  margin-top: 1rem;
+}
+
+/* on-demand "Generate AI Description" button */
+.MovieModal-aiButton {
+  background: var(--periwinkle, #4f53c4);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.MovieModal-aiButton:hover:not(:disabled) {
+  background: var(--periwinkle-hover, #3f43ad);
+}
+
+.MovieModal-aiButton:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.MovieModal-aiLabel {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--periwinkle, #4f53c4);
+}
+
+.MovieModal-aiText,
+.MovieModal-aiLoading {
+  margin: 0;
+  color: var(--text, #1d1e36);
+  line-height: 1.6;
+}
+
+.MovieModal-aiLoading {
+  color: var(--text-dim, #494c80);
+  font-style: italic;
+}

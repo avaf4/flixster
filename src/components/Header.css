@@ -1,0 +1,104 @@
+/* Top nav bar, HBO-Max style. */
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+}
+
+/* overlay variant: transparent, floats over the hero image.
+   Extra left padding so the nav clears the 64px sidebar rail. */
+.Header--overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding-left: calc(2rem + 64px);
+}
+
+@media (max-width: 600px) {
+  /* no left rail on mobile */
+  .Header--overlay {
+    padding-left: 1rem;
+  }
+}
+
+/* solid variant: periwinkle bar (used when there's no hero, e.g. search mode).
+   Extra left padding so the nav clears the 64px sidebar rail. */
+.Header--solid {
+  background: var(--periwinkle, #4f53c4);
+  box-shadow: 0 2px 8px rgba(79, 83, 196, 0.25);
+  padding-left: calc(2rem + 64px);
+}
+
+@media (max-width: 600px) {
+  /* no left rail on mobile */
+  .Header--solid {
+    padding-left: 1rem;
+  }
+}
+
+.Header-nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* center slot holding the search + sort controls */
+.Header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  justify-content: center;
+  max-width: 860px;
+  margin: 0 1.5rem;
+}
+
+@media (max-width: 600px) {
+  /* stack the header so the controls get their own row on mobile */
+  .Header {
+    flex-wrap: wrap;
+  }
+  .Header-controls {
+    order: 3;
+    flex-basis: 100%;
+    /* stack search + sort vertically so neither gets squeezed */
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+    margin: 0.75rem 0 0;
+    max-width: none;
+  }
+}
+
+.Header-link {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  font-weight: 500;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.Header-link.is-active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.Header-brand {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 600px) {
+  .Header {
+    padding: 1rem;
+  }
+  .Header-brand {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,32 @@
+.Footer {
+  background: var(--periwinkle, #4f53c4);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  margin-top: 2rem;
+  /* clear the 64px sidebar rail so the centered text isn't offset by it */
+  padding-left: calc(1rem + 64px);
+}
+
+@media (max-width: 600px) {
+  /* no left rail on mobile */
+  .Footer {
+    padding-left: 1rem;
+  }
+}
+
+.Footer-text {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.Footer-attribution {
+  margin: 0.5rem 0 0;
+  color: #e7e8fa;
+  font-size: 0.9rem;
+}
+
+.Footer-attribution a {
+  color: #ffffff;
+  font-weight: 600;
+}

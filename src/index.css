@@ -1,19 +1,52 @@
+/* Global styles: white + periwinkle theme, consistent typography. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  /* white + periwinkle palette (all text pairings target WCAG AA, 4.5:1+) */
+  --bg: #ffffff;            /* page background */
+  --surface: #f3f3fc;       /* card / panel background (pale periwinkle tint) */
+  --surface-2: #e7e8fa;     /* secondary surface, genre chips */
+  --periwinkle: #4f53c4;    /* deep periwinkle — buttons, header, accents (white text on it) */
+  --periwinkle-hover: #3f43ad;
+  --periwinkle-soft: #8d90e8;
+  --periwinkle-border: #d2d3f5;
+  --text: #1d1e36;          /* near-black on white (~14:1) */
+  --text-dim: #494c80;      /* muted text on white (~6:1, AA-safe) */
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 button {
-  background-color: #282c34;
-  color: white;
+  font-family: inherit;
+  background-color: var(--periwinkle);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.55rem 1rem;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
-  background-color: #777;
-  color: white;
+  background-color: var(--periwinkle-hover);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--periwinkle);
+  outline-offset: 2px;
 }
