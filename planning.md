@@ -35,7 +35,7 @@ App
 
 | MovieCard | Displays a single movie's poster, title, and vote average as a clickable tile, plus a favorite heart and watched checkbox with visual feedback. | Poster `<img>`, title, vote average, favorite heart, watched checkbox/badge | `movie`, `onClick`, `isFavorited`, `isWatched`, `onToggleFavorite`, `onToggleWatched` | No |
 
-| MovieModal | Pop-up showing full details for the selected movie plus the embedded trailer and AI watch recommendation. Fetches its own details, trailer, and AI insight. | Trailer iframe (or backdrop poster fallback), runtime, release date, genres, overview, AI recommendation | `movieId` (number), `onClose` (handler) | Yes — details, loading, error, trailerKey, aiInsight, loadingInsight. Opened when App sets `selectedId`; closed via X button, backdrop click, or Escape. |
+| MovieModal | Pop-up showing full details for the selected movie plus the AI watch recommendation. Fetches its own details + AI insight. | Backdrop poster, runtime, release date, genres, overview, AI recommendation | `movieId` (number), `onClose` (handler) | Yes — details, loading, error, aiInsight, loadingInsight. Opened when App sets `selectedId`; closed via X button, backdrop click, or Escape. |
 
 | Footer | Displays footer/attribution section. | Footer text, TMDb attribution | none | No |
 
