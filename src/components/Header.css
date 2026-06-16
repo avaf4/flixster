@@ -7,14 +7,14 @@
 }
 
 /* overlay variant: transparent, floats over the hero image.
-   Extra left padding so the nav clears the 64px sidebar rail. */
+   Extra left padding so the nav clears the 96px sidebar rail. */
 .Header--overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 50;
-  padding-left: calc(2rem + 64px);
+  padding-left: calc(2rem + 96px);
 }
 
 @media (max-width: 600px) {
@@ -25,11 +25,11 @@
 }
 
 /* solid variant: periwinkle bar (used when there's no hero, e.g. search mode).
-   Extra left padding so the nav clears the 64px sidebar rail. */
+   Extra left padding so the nav clears the 96px sidebar rail. */
 .Header--solid {
   background: var(--periwinkle, #4f53c4);
   box-shadow: 0 2px 8px rgba(79, 83, 196, 0.25);
-  padding-left: calc(2rem + 64px);
+  padding-left: calc(2rem + 96px);
 }
 
 @media (max-width: 600px) {

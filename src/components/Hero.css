@@ -22,9 +22,9 @@
 .Hero-content {
   position: relative;
   z-index: 2;
-  max-width: 600px;
+  max-width: 1000px;
   /* extra left padding so the text clears the 64px sidebar rail */
-  padding: 0 2rem 4.5rem calc(2rem + 64px);
+  padding: 0 2rem 4.5rem calc(2rem + 96px);
 }
 
 .Hero-eyebrow {
